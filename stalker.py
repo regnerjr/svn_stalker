@@ -43,6 +43,9 @@ def get_diffs(client, root_info, diffs_to_get):
     diffs_of_interest = range(head_revision-(diffs_to_get-1), head_revision+1)
     print "getting last %d diffs, from %s" % (diffs_to_get, root_info.URL)
 
+# cat file.diff | sed 's/^-/\x1b[41m-/;s/^+/\x1b[42m+/;s/^@/\x1b[34m@/;s/$/\x1b[0m/'
+# will print a colored diff to the terminal
+
 def main():
     if len(sys.argv) == 1:
         print "Must supply a url for the repo you would like to stalk"
